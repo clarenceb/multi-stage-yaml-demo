@@ -4,7 +4,7 @@ trigger:
 
 variables:
   imageName: 'gosample'
-  registry: 'kubreg.azurecr.io'
+  registry: 'clarencedemoacr.azurecr.io'
 
 stages:
 - stage: build
@@ -42,7 +42,7 @@ stages:
             - task: KubernetesManifest@0
               inputs:
                 action: 'deploy'
-                kubernetesServiceConnection: 'dev-kub-gosample-1558821689026'
+                kubernetesServiceConnection: 'dev-clarence-demo-aks-gosample-1565207547974'
                 namespace: 'gosample'
                 manifests: '$(System.ArtifactsDirectory)/manifests/deploy.yaml'
                 containers: '$(registry)/$(imageName):$(Build.BuildId)'
